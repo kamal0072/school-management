@@ -1,0 +1,24 @@
+{% extends 'enroll/base.html' %}
+{% block map %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h3> Here we will show maps Data:{{mapbox_access_token}}</h3>
+            <div id='map' style='width: 900px; height: 400px;'></div>
+                <script>
+                mapboxgl.accessToken = 'pk.eyJ1Ijoia2FtYWwwMDcyIiwiYSI6ImNrcDNsMmlhcDI0c3gyd21wZ2x2aThkbTAifQ.4wFDwS-374kWTE0_j37mVA';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/satellite-streets-v10',
+                    center: [-77.03, 38.91],
+                    //[-74.5, 40]
+                    zoom: 9,
+                    bearing: 180
+                });
+                </script>
+                    <i class="fas fa-map-marker-alt"></i>
+            </div>
+        </div>
+    <a class="btn btn-success btn-lg m-4" href="{% url 'studform' %}">Home</a>
+    </div>
+    {% endblock map %}

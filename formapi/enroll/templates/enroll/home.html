@@ -1,0 +1,44 @@
+{% extends 'enroll/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Student Registrstion form</title>
+{% endblock title %}
+
+{% block studentform %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 class="text text-danger mt-4">Student Registration Form</h2>
+                <form action="" method="post" novalidate>
+                {% csrf_token %}
+                
+                {{fm.name|as_crispy_field}}
+                {{fm.address|as_crispy_field}}
+                {{fm.email|as_crispy_field}}
+                {{fm.message|as_crispy_field}}
+              
+                <input class=" btn btn-primary mt-2" type="submit" value="submit">            
+                <input class=" btn btn-danger mt-2" type="submit" value="Cancel">            
+                </form>
+            </div>
+            <div class="col-sm-6 mt-4">
+                <h2 class='text text-danger'>Student Detail</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{fm2.like_website|as_crispy_field}}
+                    {{fm2.favorite_food|as_crispy_field}}
+                    {{fm2.favorite_color|as_crispy_field}}
+                    {{fm2.favorite_number|as_crispy_field}}
+                    {{fm2.notes|as_crispy_field}}
+                    <input class=" btn btn-primary mt-2" type="submit" value="submit">            
+                    <input class=" btn btn-danger mt-2" type="submit" value="Cancel">
+                    <a class="btn btn-info mt-2" href="{% url 'default' %}">Go To Location/Map</a>
+                </form>
+               
+            </div>
+
+        </div>
+    </div><hr>
+    
+{% endblock studentform %}
